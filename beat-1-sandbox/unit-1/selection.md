@@ -18,7 +18,7 @@ wrong label is not graded.
 [The individual Path Review issue page. A link to the repository or the issue list
 does not satisfy this field.]
 
-<https://github.com/LegalQuants/lq-ai/issues/490>
+<https://github.com/codepath/pathreview-ai301-fa26-s3/issues/65>
 
 **Verdict output**
 
@@ -31,25 +31,25 @@ rubric rather than about the issues: revise it and re-run — retries are unlimi
 partial re-run costs about $0.20 — or run the skill on different candidates. Output
 recording `reject` for the issue you chose earns no credit for this field.
 
-Evaluation summary for candidate issue: issue-14 (LegalQuants/lq-ai#490)
+Evaluation summary for candidate issue: issue-65 (codepath/pathreview-ai301-fa26-s3#65)
 
-- Check `maintainer_alive`: PASS (Maintainer default-branch commits on 2026-08-05)
-- Check `repo_in_use`: PASS (Repository active, archived: no, last push on 2026-08-05)
+- Check `repo_in_use`: PASS (Repository active, archived: no)
 - Check `ai_policy_permits`: PASS (CONTRIBUTING.md is silent on AI tools; policy permits)
 - Check `issue_unclaimed`: PASS (assignees: none; linked PRs: none; 0 comments)
-- Check `bounded_scope_and_spec`: PASS (Bounded documentation cleanup task listing exact file locations)
+- Check `bounded_scope_and_spec`: PASS (Bounded unit test mock setup fix with exact error and file provided)
+- Check `domain_of_interest`: PASS (Developer tooling/infrastructure test fix)
 
 Final Verdict: accept
 
 ```json
 {
-  "item": "issue-14",
+  "item": "https://github.com/codepath/pathreview-ai301-fa26-s3/issues/65",
   "checks": [
-    {"name": "maintainer_alive", "grade": "pass", "evidence": "Recent default-branch commit by SaifAlYounan on 2026-08-05"},
-    {"name": "repo_in_use", "grade": "pass", "evidence": "Repository active (archived: no) with push on 2026-08-05"},
+    {"name": "repo_in_use", "grade": "pass", "evidence": "Repository active (archived: no)"},
     {"name": "ai_policy_permits", "grade": "pass", "evidence": "CONTRIBUTING.md is silent on AI usage; terms permitted"},
     {"name": "issue_unclaimed", "grade": "pass", "evidence": "assignees: none; linked PRs: none; 0 comments in thread"},
-    {"name": "bounded_scope_and_spec", "grade": "pass", "evidence": "Bounded documentation task with exact list of files and changes specified"}
+    {"name": "bounded_scope_and_spec", "grade": "pass", "evidence": "Bounded unit test fix with exact file and mock changes specified"},
+    {"name": "domain_of_interest", "grade": "pass", "evidence": "Fixing unit tests relates to developer tooling/infrastructure"}
   ],
   "verdict": "accept"
 }
@@ -68,6 +68,9 @@ only one run occurred. **The last score in your list must match the agreement li
 `eval-run.txt` you committed** — that file is the record of your final run.]
 
 Run 1: 15/20 scored items
+Run 2: 12/20 scored items
+Run 3: 16/20 scored items
+Run 4: 20/20 scored items
 
 **Issue analysis**
 
@@ -88,7 +91,7 @@ Reasoning:
 currently written, with the reasoning behind its current form.]
 
 Quoted check:
-`| bounded_scope_and_spec | Issue title, body text/checklist, and comment thread | The issue describes a single, self-contained task or fix (bug fix, documentation, or feature request) with a clear target; NOT a multi-task umbrella issue, tracking megaissue, epic, or unresolved design debate. | required |`
+`| bounded_scope_and_spec | Issue title, body text/checklist, and comment thread | The issue describes an actionable bug or feature request that is NOT blocked by missing assets (e.g., "TBD"), missing designs, or unresolved maintainer debates. (A single bug with multiple potential causes or a small list of missing items is acceptable, as long as it is not an open-ended epic/tracking issue). | required |`
 
 Reasoning:
 Newcomers easily fall into traps where an issue looks friendly because of a `good-first-issue` label, but is actually an umbrella tracking task (`issue-05`, `issue-10`) or has years of unresolved design debate without a settled spec (`issue-15`, `issue-20`). Requiring the issue to be a bounded single-task item ensures that a newcomer spends time implementing a settled fix rather than navigating open-ended architectural decisions.
@@ -120,9 +123,9 @@ This is also the basis for the claim comment you write in Unit 2.
    not.
 3. The anticipated difficulty in claiming it.]
 
-4. Fit to interests and time: `issue-14` (`LegalQuants/lq-ai#490`) is a well-defined documentation cleanup task removing stale Discord links across 5 community doc files and routing questions to GitHub Discussions. It requires no complex code dependencies and fits cleanly within a 1-hour window for Unit 2. It is not a perfect fit to my interests but it is a good starting point and fits the time available.
-5. What the verdict identified correctly vs human weighing: The rubric correctly verified that the repository is active (`last push 2026-08-05`), maintainers are active, the issue is completely unassigned with 0 comments/PRs, and the AI policy is non-restrictive. As a human, I further weighed that the issue author explicitly outlined exact lines and files to modify, ensuring a frictionless contribution.
-6. Anticipated difficulty in claiming: Very low difficulty. The issue has no assigned maintainers, 0 comments in the thread, and no open linked PRs.
+4. Fit to interests and time: `issue-65` (`codepath/pathreview-ai301-fa26-s3#65`) is a well-defined backend fix for async mocks in `review_service` unit tests. It fits my interest in backend development and testing. The required changes are well-scoped and fit cleanly within a short time window.
+5. What the verdict identified correctly vs human weighing: The rubric correctly verified that the repository is active, the issue is unassigned with 0 comments, and the AI policy allows contributions. As a human, I further weighed that the issue clearly states the file `tests/unit/test_review_service.py` and exactly what mocks need to be adjusted (`AsyncMock` for `execute`, `MagicMock` for the result object), making it highly actionable.
+6. Anticipated difficulty in claiming: Very low difficulty. The issue has no assigned maintainers, no open linked PRs, and no comments claiming it.
 
 ---
 
